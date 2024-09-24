@@ -30,7 +30,7 @@ async def create_upload_file(file: UploadFile):
     file_ext = file.content_type.split('/')[-1]
 
     # 디렉토리가 없으면 오류, 코드에서 확인 및 만들기 추가
-    upload_dir = "/home/whitecapella/project/mnist/img"
+    upload_dir = "/home/ubuntu/images/n77/"
     if not os.path.exists(upload_dir):
         os.makedirs(upload_dir)
     import uuid
@@ -44,7 +44,7 @@ async def create_upload_file(file: UploadFile):
     
     import jigeum.seoul 
     from mnist.db import dml
-    insert_row = dml(sql, file_name, file_full_path, jigeum.seoul.now(), 'n99')
+    insert_row = dml(sql, file_name, file_full_path, jigeum.seoul.now(), 'n17')
     
     return {
             "filename": file.filename,
