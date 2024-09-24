@@ -5,7 +5,7 @@
 groups = ["default", "test"]
 strategy = ["inherit_metadata"]
 lock_version = "4.5.0"
-content_hash = "sha256:7e3078a94590c06decd5dc46c29389b4d2f8c93e251dac07d7472b11a82c8295"
+content_hash = "sha256:4ad97c8cfea9ac503f42b948ee6a1bd78936b620a5bfc03fba69fc62fe8ba564"
 
 [[metadata.targets]]
 requires_python = "==3.11.*"
@@ -547,6 +547,21 @@ dependencies = [
 files = [
     {file = "mnist-0.2.2-py2.py3-none-any.whl", hash = "sha256:80e2b07992e5cc61e6247751ce8926f6d15ab3ebde1508d9bbc8891a766c7b91"},
     {file = "mnist-0.2.2.tar.gz", hash = "sha256:24934fade9fbbd8adc98713ba805282e7e579224e888169bb5c8ab777efa7b54"},
+]
+
+[[package]]
+name = "mnist-utils"
+version = "0.0.2"
+requires_python = ">=3.6"
+summary = "A small package for working with MNIST data."
+groups = ["default"]
+dependencies = [
+    "matplotlib>=3.2.2",
+    "numpy>=1.19.0",
+]
+files = [
+    {file = "mnist-utils-0.0.2.tar.gz", hash = "sha256:e6bf5b53f6bef1db67bc4d5bdc0d40c14ce544ffaf1fc73bd3871804b9fda4b1"},
+    {file = "mnist_utils-0.0.2-py3-none-any.whl", hash = "sha256:146ef1e1911aef0a5f1a78ce2afa639ee0fe5a544c6a3edf7cdaa0aad6f9a3d0"},
 ]
 
 [[package]]
