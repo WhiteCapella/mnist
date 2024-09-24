@@ -1,6 +1,6 @@
 from datetime import datetime
-from mnist.utils.db import get_db_connection
-from mnist.utils.util import get_now_time
+from utils.db import get_db_connection
+from utils.util import get_now_time
 import random
 import requests
 import os

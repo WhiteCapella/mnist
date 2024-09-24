@@ -5,7 +5,7 @@
 groups = ["default", "test"]
 strategy = ["inherit_metadata"]
 lock_version = "4.5.0"
-content_hash = "sha256:4ad97c8cfea9ac503f42b948ee6a1bd78936b620a5bfc03fba69fc62fe8ba564"
+content_hash = "sha256:b09897f980b55955419772d4ee76e29831d3a5598c1adcb54908fbd66fc187e0"
 
 [[metadata.targets]]
 requires_python = "==3.11.*"
@@ -1190,6 +1190,16 @@ groups = ["default"]
 files = [
     {file = "urllib3-2.2.3-py3-none-any.whl", hash = "sha256:ca899ca043dcb1bafa3e262d73aa25c465bfb49e0bd9dd5d59f1d0acba2f8fac"},
     {file = "urllib3-2.2.3.tar.gz", hash = "sha256:e7d814a81dad81e6caf2ec9fdedb284ecc9c73076b62654547cc64ccdcae26e9"},
+]
+
+[[package]]
+name = "utils"
+version = "1.0.2"
+requires_python = ">=3.6"
+summary = "A grab-bag of utility functions and objects"
+groups = ["default"]
+files = [
+    {file = "utils-1.0.2.tar.gz", hash = "sha256:f4d5157e27e9d434006b5b52a1ec951a34e53e7ecaa145d43a153ec452eb5d9e"},
 ]
 
 [[package]]
