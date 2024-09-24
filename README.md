@@ -18,6 +18,7 @@ sudo docker run -d \
 ```
 
 ## Table
+```
 $ sudo docker exec -it mnist-mariadb bash
 root@5d871c9bab8f:/# mariadb -u mnist -p1234
 Welcome to the MariaDB monitor.  Commands end with ; or \g.
