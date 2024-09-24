@@ -5,7 +5,7 @@
 groups = ["default"]
 strategy = ["inherit_metadata"]
 lock_version = "4.5.0"
-content_hash = "sha256:c60b4475ba6ea933eba2bf265f62a8573fb1968f32efd37f00186decf8564c01"
+content_hash = "sha256:229df0471635f31d897fd35c08f8fdad8b331e293e5afccfa54c92441ef99042"
 
 [[metadata.targets]]
 requires_python = "==3.11.*"
@@ -127,6 +127,20 @@ files = [
 ]
 
 [[package]]
+name = "jigeum"
+version = "1.0.2"
+requires_python = ">=3.9"
+summary = "jigeum seoul now"
+groups = ["default"]
+dependencies = [
+    "pytz>=2024.2",
+]
+files = [
+    {file = "jigeum-1.0.2-py3-none-any.whl", hash = "sha256:63d016eeda646effae819f7ec696d235527674c08c75ba6d634216ff30ebd0df"},
+    {file = "jigeum-1.0.2.tar.gz", hash = "sha256:da976a3b90cc956d7e846dc8b25a7e74a9768cddb78def53490c6451b9bdeb42"},
+]
+
+[[package]]
 name = "pydantic"
 version = "2.9.2"
 requires_python = ">=3.8"
@@ -199,6 +213,16 @@ groups = ["default"]
 files = [
     {file = "python_multipart-0.0.10-py3-none-any.whl", hash = "sha256:2b06ad9e8d50c7a8db80e3b56dab590137b323410605af2be20d62a5f1ba1dc8"},
     {file = "python_multipart-0.0.10.tar.gz", hash = "sha256:46eb3c6ce6fdda5fb1a03c7e11d490e407c6930a2703fe7aef4da71c374688fa"},
+]
+
+[[package]]
+name = "pytz"
+version = "2024.2"
+summary = "World timezone definitions, modern and historical"
+groups = ["default"]
+files = [
+    {file = "pytz-2024.2-py2.py3-none-any.whl", hash = "sha256:31c7c1817eb7fae7ca4b8c7ee50c72f93aa2dd863de768e1ef4245d426aa0725"},
+    {file = "pytz-2024.2.tar.gz", hash = "sha256:2aa355083c50a0f93fa581709deac0c9ad65cca8a9e9beac660adcbd493c798a"},
 ]
 
 [[package]]
