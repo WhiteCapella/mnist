@@ -15,4 +15,3 @@ COPY run.sh /code/run.sh
 RUN pip install --no-cache-dir --upgrade git+https://github.com/WhiteCapella/mnist.git@0.5/line
 
 CMD ["sh", "run.sh"]
-CMD ["python", "worker.py"]
