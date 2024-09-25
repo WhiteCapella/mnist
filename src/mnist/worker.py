@@ -1,6 +1,5 @@
 from datetime import datetime
-from utils.db import get_db_connection
-from utils.util import get_now_time
+import pymysql.cursors
 import random
 import requests
 import os
@@ -9,10 +8,23 @@ api_url = "https://notify-api.line.me/api/notify"
 token = os.getenv("LINE_TOKEN")
 
 
+# pymysql 연결 정보 (실제 정보로 대체)
+db_config = {
+    'host': '172.18.0.1',
+    'port': 53306,
+    'user': 'mnist',
+    'password': '1234',
+    'database': 'mnistdb',
+    'cursorclass': pymysql.cursors.DictCursor
+}
+
+def get_now_time():
+    return datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+
 # SQL 처리
 def execute_sql(sql, params=None, is_commit=False, fetchone=False):
     try:
-        with get_db_connection() as connection:
+        with pymysql.connect(**db_config) as connection:
             with connection.cursor() as cursor:
                 cursor.execute(sql, params)
                 if is_commit:
@@ -20,10 +32,11 @@ def execute_sql(sql, params=None, is_commit=False, fetchone=False):
                     return True
                 if fetchone:
                     return cursor.fetchone()
+                else:
+                    return cursor.fetchall()  # fetchone이 아닌 경우 fetchall() 결과 반환
     except Exception as e:
         print(f"An error occurred: {e}")
-        return False  # 에러 발생 시 False 반환
-
+        return False 
 
 # Null 인 데이터 하나만 호출
 def get_pr_is_null():
@@ -38,7 +51,7 @@ def get_pr_is_null():
 
 # Null인 데이터 업데이트
 def update_data(data):
-    idx = data[0]
+    idx = data['num']  # 딕셔너리 형태로 받아온 데이터에서 'num' 값 추출
     v = random.randrange(0, 9)
     current_time = get_now_time()
     sql = """
@@ -53,7 +66,6 @@ def update_data(data):
         return current_time, v  # 업데이트 성공 시 반환
     else:
         return None, None
-
 
 # Line 메시지 전송
 def send_notification(message_txt):
