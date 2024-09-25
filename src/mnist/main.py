@@ -1,5 +1,5 @@
 from typing import Annotated
-from fastapi import FastAPI, File, UploadFile
+from fastapi import FastAPI, File, UploadFile, Form
 import os
 import pymysql.cursors
 import json
@@ -24,7 +24,7 @@ async def file_list():
 
 @app.post("/uploadfile/")
 async def create_upload_file(
-    file: UploadFile
+    file: UploadFile,
     label: str = Form(...)
 ):
     # 파일 저장
