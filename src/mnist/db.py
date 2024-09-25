@@ -27,6 +27,6 @@ def dml(sql, *values):
 
   with conn:
     with conn.cursor() as cursor:
-        cursor.execute(sql, values)
+        cursor.execute(sql, (values,))
         conn.commit()
         return cursor.rowcount
