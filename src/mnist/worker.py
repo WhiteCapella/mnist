@@ -10,7 +10,7 @@ token = os.getenv("LINE_TOKEN")
 
 # pymysql 연결 정보 (실제 정보로 대체)
 db_config = {
-    'host': '172.0.0.1',
+    'host': '172.17.0.1',
     'port': 53306,
     'user': 'mnist',
     'password': '1234',
@@ -73,7 +73,7 @@ def update_data(data):
 
 # Line 메시지 전송
 def send_notification(message_txt):
-    headers = {"Authorization": "Bearer " + token}
+    headers = {"Authorization": "Bearer lFAUGd2l1MgZkHf54FJmZEXgyExhjOiqB2ueZlGQe52"}
     message = {"message": message_txt}
     try:
         requests.post(api_url, headers=headers, data=message)
@@ -106,11 +106,12 @@ def run():
             # STEP 3
             # LINE 으로 처리 결과 전송
             message_txt = f"""[Worker 알림]\n
-🚀  {data[0]}번째의 데이터 Update!
-1️⃣  prediction_model : {data[5]} -> model
-2️⃣  tprediction_result : {data[6]} -> {pr_result}
-3️⃣  prediction_time : {data[7]} -> {pr_time}
-"""
+🚀  {data['num']}번째의 데이터 Update!
+1️⃣  prediction_model : {data['prediction_model']} -> model
+2️⃣  prediction_result : {data['prediction_result']} -> {pr_result}
+3️⃣  prediction_time : {data['prediction_time']} -> {pr_time}
+""" 
+            send_notification(message_txt)
             send_notification(message_txt)
         else:
             print("Failed to update data.")
