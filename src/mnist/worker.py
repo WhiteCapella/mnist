@@ -10,7 +10,7 @@ token = os.getenv("LINE_TOKEN")
 
 # pymysql 연결 정보 (실제 정보로 대체)
 db_config = {
-    'host': '172.18.0.1',
+    'host': '172.0.0.1',
     'port': 53306,
     'user': 'mnist',
     'password': '1234',
@@ -51,6 +51,10 @@ def get_pr_is_null():
 
 # Null인 데이터 업데이트
 def update_data(data):
+    if not isinstance(data, dict):
+        print("Error: Invalid data format. Expected a dictionary.")
+        return None, None  # 또는 적절한 예외 처리
+
     idx = data['num']  # 딕셔너리 형태로 받아온 데이터에서 'num' 값 추출
     v = random.randrange(0, 9)
     current_time = get_now_time()
