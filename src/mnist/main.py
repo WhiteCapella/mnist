@@ -23,7 +23,10 @@ async def file_list():
 
 
 @app.post("/uploadfile/")
-async def create_upload_file(file: UploadFile):
+async def create_upload_file(
+    file: UploadFile
+    label: str = Form(...)
+):
     # 파일 저장
     img = await file.read()
     file_name = file.filename
@@ -44,7 +47,7 @@ async def create_upload_file(file: UploadFile):
     
     import jigeum.seoul 
     from mnist.db import dml
-    insert_row = dml(sql, file_name, file_full_path, jigeum.seoul.now(), 'n17')
+    insert_row = dml(sql, file_name, label, file_full_path, jigeum.seoul.now(), 'n17')
     
     return {
             "filename": file.filename,
