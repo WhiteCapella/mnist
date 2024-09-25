@@ -110,3 +110,5 @@ def run():
             send_notification(message_txt)
         else:
             print("Failed to update data.")
+
+run()
