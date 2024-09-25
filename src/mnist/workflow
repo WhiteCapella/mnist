@@ -1,0 +1,32 @@
+# Workflow
+
+## Insert Images
+
+- FastAPI()를 사용해 손글씨 이미지를 입력받는 페이지 생성
+
+## Predict Number
+
+- 입력받은 이미지는 우선 다음의 정보를 기록한다.
+    - 입력받은 파일 이름            (file_name)         : varchar
+    - 요청자                        (request_user)      : varchar
+    - 요청시각                      (request_time)      : varchar
+
+- 이후 다음의 정보들을 추적해야함.
+    - 예측을 위해 사용할 학습모델   (prediction_model)  : varchar
+    - 예측을 진행한 결과 값         (prediction_result) : varchar
+    - 요청시각으로부터 
+      결과가 도출될때 까지의 시간   (prediction_time)   : varchar
+
+- 이 과정이 끝나면 데이터베이스에서 특정 정보를 자동으로 입력 후 저장된다.
+    - 해당 이미지가 저장될 경로     (file_path)         : varchar
+    - 순번                          (num)               : int
+    - 실제 정답                     (label)             : varchar
+
+## Return result
+
+- prediction 과정이 종료되어 prediction_result 값이 return되면 user에게 보여준다.
+- 보여주는 과정은 line_notify를 이용함
+
+## Save data
+
+- 과정이 종료되면 데이터베이스에 저장한다.
